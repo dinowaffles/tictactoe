@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
 html {
     font-size: 16px;
+}
+
+body {
+    font-family: Viga;
 }
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
 }
 
 main {
@@ -17,23 +24,34 @@ main {
     grid-column: 1;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 2fr;
+    padding: 0 3rem;
 }
 
 #startbtn {
     grid-row: 1;
     justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
+    border: 1px solid black;
+    border-radius: 15%;
 }
 
 #player1 {
     grid-row: 2;
+    align-items: center;
+    font-size: 1.3rem;
 }
 
 #player2 {
     grid-row: 3;
+    align-items: center;
+    font-size: 1.3rem;
 }
 
 #results {
     grid-row: 4;
+    font-size: 1.5rem;
 }
 
 .gameboard {
@@ -41,14 +59,42 @@ main {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    max-width: 18rem;
+    max-width: 27rem;
+    max-height: 27rem;
     column-gap: 0px;
     row-gap: 0px;
 }
 
+.top {
+    grid-row: 1;
+    align-items: end;
+}
+
+.center {
+    grid-row: 2;
+}
+
+.bottom {
+    grid-row: 3;
+    align-items: start;
+}
+
+.left {
+    grid-column: 1;
+    justify-content: end;
+}
+
+.middle {
+    grid-column: 2;
+}
+
+.right {
+    grid-column: 3;
+}
+
 div {
-    height: 6rem;
-    width: 6rem;
+    height: 9rem;
+    width: 9rem;
     border: 2px solid black;
 }
 
@@ -56,4 +102,5 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 2rem;
 }
