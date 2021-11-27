@@ -32,7 +32,7 @@ main {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    padding: 1rem 0.5rem;
+    padding-left: 2rem;
     border: 1px solid black;
     border-radius: 15%;
 }
@@ -96,6 +96,20 @@ div {
     height: 9rem;
     width: 9rem;
     border: 2px solid black;
+}
+
+.p1choice {
+    background-color: lightblue;
+    font-size: 7rem;
+    text-align: center;
+    line-height: 9rem;
+}
+
+.p2choice {
+    background-color: lightcoral;
+    font-size: 7rem;
+    text-align: center;
+    line-height: 9rem;
 }
 
 footer {
