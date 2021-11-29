@@ -25,6 +25,5 @@ To create an online game where two people can play tic tac toe.
 4. I then worked in the JavaScript file so that the game could be played. First I added event listeners so that when a user clicked on a space, a class would be added and the styling for that class would be applied to that element. Then I added in logic to check whether or not that player had won by comparing the innerHTML of possible three-in-a-rows. If there was no winner, then the game would continue until one player had accomplished three in a row or all spaces had been played. That result would then be shown in the results section. At that point, the game has ended, and the players would have the option of starting a new game. 
 
 ## Installation and Use
-- The game can be played online at: 
-- The repository for the game can be accessed at: 
-
+- The game can be played online at: http://www.abbyhenes.com/tictactoe/
+- The repository for the game can be accessed on [GitHub](https://github.com/dinowaffles/tictactoe). Feel free to fork this respository, then clone it locally to customize it to your preferences!
