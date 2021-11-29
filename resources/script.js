@@ -61,6 +61,13 @@ const bottomLeft = document.querySelector("#bottomleft");
 const bottomMiddle = document.querySelector("#bottommiddle");
 const bottomRight = document.querySelector("#bottomright");
 
+const allChoices = document.querySelectorAll("div");
+
+const startBtn = document.querySelector("#startbtn");
+
+const player1Display = document.querySelector("#player1");
+const player2Display = document.querySelector("#player2");
+
 const results = document.querySelector("#results");
 
 let player1Choices = [];
@@ -78,13 +85,14 @@ const checkWinnersP1 = function() {
             results.innerText = "Results: Player 1 Wins!"
     } else {
         if (turnsPlayed < 8) {
+            player1Display.classList.remove("yourTurn");
+            player2Display.classList.add("yourTurn")
             turnsPlayed += 1;
         } else {
             results.innerText = "Results: Tie Game!"
         }
     }
 }
-
 
 const checkWinnersP2 = function() {
     if ((topLeft.innerText === "O" && topMiddle.innerText ==="O" && topRight.innerText === "O") ||
@@ -97,16 +105,16 @@ const checkWinnersP2 = function() {
     (topRight.innerText === "O" && centerMiddle.innerText ==="O" && bottomLeft.innerText === "O")) {
         results.innerText = "Results: Player 2 Wins!"
     } else {
+        player2Display.classList.remove("yourTurn");
+        player1Display.classList.add("yourTurn");
         turnsPlayed += 1;
     };
 };
 
-
-const allChoices = document.querySelectorAll("div");
-
 let turnsPlayed = 0;
 
 const newGame = function() {
+    player1Display.classList.add("yourTurn");
     allChoices.forEach((div) => {
         div.addEventListener("click", () => {
             if ((player1Choices.includes(div)) || (player2Choices.includes(div))) {
@@ -130,3 +138,13 @@ const newGame = function() {
 
 newGame();
 
+const startGame = startBtn.addEventListener("click", () => {
+    allChoices.forEach((element) => {
+        element.innerText = "";
+        element.classList.remove("p1choice");
+        element.classList.remove("p2choice");
+    });
+    player1Choices = [];
+    player2Choices = [];
+    newGame();
+});
