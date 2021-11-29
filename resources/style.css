@@ -35,10 +35,15 @@ main {
     align-items: center;
     font-size: 1.5rem;
     color: #EDE9DF;
+    margin: 0.6rem;
     padding-left: 2rem;
-    border: 1px solid #222222;
+    border: 2px double #222222;
     border-radius: 15%;
     background-color: #7C4343;
+}
+
+#startbtn:hover {
+    background-color: #AF7676;
 }
 
 #player1 {

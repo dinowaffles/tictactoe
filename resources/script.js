@@ -73,6 +73,8 @@ const results = document.querySelector("#results");
 let player1Choices = [];
 let player2Choices = [];
 
+let gameEnd = false;
+
 const checkWinnersP1 = function() {
         if ((topLeft.innerText === "X" && topMiddle.innerText ==="X" && topRight.innerText === "X") ||
         (centerLeft.innerText === "X" && centerMiddle.innerText ==="X" && centerRight.innerText === "X") ||
@@ -82,17 +84,19 @@ const checkWinnersP1 = function() {
         (topRight.innerText === "X" && centerRight.innerText ==="X" && bottomRight.innerText === "X") ||
         (topLeft.innerText === "X" && centerMiddle.innerText ==="X" && bottomRight.innerText === "X") ||
         (topRight.innerText === "X" && centerMiddle.innerText ==="X" && bottomLeft.innerText === "X")) {
-            results.innerText = "Results: Player 1 Wins!"
+            results.innerText = "Results: Player 1 Wins!";
+            gameEnd = true;
     } else {
         if (turnsPlayed < 8) {
             player1Display.classList.remove("yourTurn");
-            player2Display.classList.add("yourTurn")
+            player2Display.classList.add("yourTurn");
             turnsPlayed += 1;
         } else {
-            results.innerText = "Results: Tie Game!"
-        }
-    }
-}
+            results.innerText = "Results: Tie Game!";
+            gameEnd = true;
+        };
+    };
+};
 
 const checkWinnersP2 = function() {
     if ((topLeft.innerText === "O" && topMiddle.innerText ==="O" && topRight.innerText === "O") ||
@@ -104,6 +108,7 @@ const checkWinnersP2 = function() {
     (topLeft.innerText === "O" && centerMiddle.innerText ==="O" && bottomRight.innerText === "O") ||
     (topRight.innerText === "O" && centerMiddle.innerText ==="O" && bottomLeft.innerText === "O")) {
         results.innerText = "Results: Player 2 Wins!"
+        gameEnd = true;
     } else {
         player2Display.classList.remove("yourTurn");
         player1Display.classList.add("yourTurn");
@@ -117,34 +122,45 @@ const newGame = function() {
     player1Display.classList.add("yourTurn");
     allChoices.forEach((div) => {
         div.addEventListener("click", () => {
-            if ((player1Choices.includes(div)) || (player2Choices.includes(div))) {
-                alert("Choose an empty space.")
+            if (gameEnd === true) {
+                return;
             } else {
-                if (turnsPlayed % 2 === 0) {
-                    div.innerText = "X";
-                    div.classList.add("p1choice");
-                    player1Choices.push(div);
-                    checkWinnersP1();
-                } else if (turnsPlayed % 2 !== 0) {
-                    div.innerText = "O";
-                    div.classList.add("p2choice");
-                    player2Choices.push(div);
-                    checkWinnersP2();
+                if ((player1Choices.includes(div)) || (player2Choices.includes(div))) {
+                    console.log(player1Choices);
+                    console.log(player2Choices);
+                    alert("Choose an empty space.");
+                } else {
+                    if (turnsPlayed % 2 === 0) {
+                        div.innerText = "X";
+                        div.classList.add("p1choice");
+                        player1Choices.push(div);
+                        checkWinnersP1();
+                    } else if (turnsPlayed % 2 !== 0) {
+                        div.innerText = "O";
+                        div.classList.add("p2choice");
+                        player2Choices.push(div);
+                        checkWinnersP2();
+                    };
                 };
             };
         });
     });
 };
 
-newGame();
+// newGame();
 
 const startGame = startBtn.addEventListener("click", () => {
+    player1Choices = [];
+    player2Choices = [];
+    turnsPlayed = 0;
     allChoices.forEach((element) => {
         element.innerText = "";
         element.classList.remove("p1choice");
         element.classList.remove("p2choice");
     });
-    player1Choices = [];
-    player2Choices = [];
+    results.innerText = "Results:"
+    player1Display.classList.add("yourTurn");
+    player2Display.classList.remove("yourTurn");
+    gameEnd = false;
     newGame();
 });
