@@ -63,97 +63,58 @@ const bottomRight = document.querySelector("#bottomright");
 
 const results = document.querySelector("#results");
 
-const winners = [
-    [topLeft, topMiddle, topRight],
-    [centerLeft, centerMiddle, centerRight],
-    [bottomLeft, bottomMiddle, bottomRight],
-    [topLeft, centerLeft, bottomLeft],
-    [topMiddle, centerMiddle, bottomMiddle],
-    [topRight, centerRight, bottomRight],
-    [topLeft, centerMiddle, bottomRight],
-    [topRight, centerMiddle, bottomLeft]
-];
-
 let player1Choices = [];
 let player2Choices = [];
 
-let playerTurns = ["p1"]
-
-const checkWinnersP1 = function() {
-    if ((topLeft.innerText === "X" && topMiddle.innerText ==="X" && topRight.innerText === "X") ||
-    (centerLeft.innerText === "X" && centerMiddle.innerText ==="X" && centerRight.innerText === "X") ||
-    (bottomLeft.innerText === "X" && bottomMiddle.innerText ==="X" && bottomRight.innerText === "X") ||
-    (topLeft.innerText === "X" && centerLeft.innerText ==="X" && bottomLeft.innerText === "X") ||
-    (topMiddle.innerText === "X" && centerMiddle.innerText ==="X" && bottomMiddle.innerText === "X") ||
-    (topRight.innerText === "X" && centerRight.innerText ==="X" && bottomRight.innerText === "X") ||
-    (topLeft.innerText === "X" && centerMiddle.innerText ==="X" && bottomRight.innerText === "X") ||
-    (topRight.innerText === "X" && centerMiddle.innerText ==="X" && bottomLeft.innerText === "X")) {
-        results.innerText = "Results: Player 1 Wins!"
-    } else {
-        newTurn();
-    }
-}
-
-
-const checkWinnersP2 = function() {
-    if ((topLeft.innerText === "O" && topMiddle.innerText ==="O" && topRight.innerText === "O") ||
-    (centerLeft.innerText === "O" && centerMiddle.innerText ==="O" && centerRight.innerText === "O") ||
-    (bottomLeft.innerText === "O" && bottomMiddle.innerText ==="O" && bottomRight.innerText === "O") ||
-    (topLeft.innerText === "O" && centerLeft.innerText ==="O" && bottomLeft.innerText === "O") ||
-    (topMiddle.innerText === "O" && centerMiddle.innerText ==="O" && bottomMiddle.innerText === "O") ||
-    (topRight.innerText === "O" && centerRight.innerText ==="O" && bottomRight.innerText === "O") ||
-    (topLeft.innerText === "O" && centerMiddle.innerText ==="O" && bottomRight.innerText === "O") ||
-    (topRight.innerText === "O" && centerMiddle.innerText ==="O" && bottomLeft.innerText === "O")) {
-        results.innerText = "Results: Player 2 Wins!"
-    } else {
-        newTurn();
-    }
-}
-
-const allChoices = document.querySelectorAll("div");
-
-const player1Turn = function() {
-    allChoices.forEach((div, choice) => {
-        if (player1Choices.includes(div) || player2Choices.includes(div)) {
-            return;
-        } else {
-            div.addEventListener("click", () => {
-                div.classList.add("p1choice");
-                div.innerText = "X";
-                player1Choices.push(div);
-                playerTurns.push("p2");
-            })
-        }
-    })
-}
-
-const player2Turn = function() {
-    allChoices.forEach((div, choice) => {
-        if (player1Choices.includes(div) || player2Choices.includes(div)) {
-            return;
-        } else {
-            div.addEventListener("click", () => {
-                div.classList.add("p2choice");
-                div.innerText = "O";
-                player2Choices.push(div);
-                playerTurns.push("p1");
-            })
-        }
-    })
-}
-
-
-const newTurn = function() {
-    if (playerTurns.at(-1) === "p1") {
-        player1Turn();
-    } else {
-        player2Turn();
-    }
-}
+let turnsPlayed = 0;
 
 const newGame = function() {
-    newTurn();
 
+    allChoices.forEach((div) => {
+        div.addEventListener("click", () => {
+            if ((player1Choices.includes(div)) || (player2Choices.includes(div))) {
+                alert("Choose an empty space.")
+            } else {
+                if (turnsPlayed % 2 === 0) {
+                    div.innerText = "X";
+                    div.classList.add("p1choice");
+                    player1Choices.push(div);
+                    if ((topLeft.innerText === "X" && topMiddle.innerText ==="X" && topRight.innerText === "X") ||
+                    (centerLeft.innerText === "X" && centerMiddle.innerText ==="X" && centerRight.innerText === "X") ||
+                    (bottomLeft.innerText === "X" && bottomMiddle.innerText ==="X" && bottomRight.innerText === "X") ||
+                    (topLeft.innerText === "X" && centerLeft.innerText ==="X" && bottomLeft.innerText === "X") ||
+                    (topMiddle.innerText === "X" && centerMiddle.innerText ==="X" && bottomMiddle.innerText === "X") ||
+                    (topRight.innerText === "X" && centerRight.innerText ==="X" && bottomRight.innerText === "X") ||
+                    (topLeft.innerText === "X" && centerMiddle.innerText ==="X" && bottomRight.innerText === "X") ||
+                    (topRight.innerText === "X" && centerMiddle.innerText ==="X" && bottomLeft.innerText === "X")) {
+                        results.innerText = "Results: Player 1 Wins!"
+                    } else {
+                        if (turnsPlayed < 8) {
+                            turnsPlayed += 1;
+                        } else {
+                            results.innerText = "Results: Tie Game!"
+                        }
+                    }
+                } else if (turnsPlayed % 2 !== 0) {
+                    div.innerText = "0";
+                    div.classList.add("p2choice");
+                    player2Choices.push(div);
+                    if ((topLeft.innerText === "O" && topMiddle.innerText ==="O" && topRight.innerText === "O") ||
+                    (centerLeft.innerText === "O" && centerMiddle.innerText ==="O" && centerRight.innerText === "O") ||
+                    (bottomLeft.innerText === "O" && bottomMiddle.innerText ==="O" && bottomRight.innerText === "O") ||
+                    (topLeft.innerText === "O" && centerLeft.innerText ==="O" && bottomLeft.innerText === "O") ||
+                    (topMiddle.innerText === "O" && centerMiddle.innerText ==="O" && bottomMiddle.innerText === "O") ||
+                    (topRight.innerText === "O" && centerRight.innerText ==="O" && bottomRight.innerText === "O") ||
+                    (topLeft.innerText === "O" && centerMiddle.innerText ==="O" && bottomRight.innerText === "O") ||
+                    (topRight.innerText === "O" && centerMiddle.innerText ==="O" && bottomLeft.innerText === "O")) {
+                        results.innerText = "Results: Player 2 Wins!"
+                    } else {
+                        turnsPlayed += 1; 
+                    }
+                }
+            }
+        })
+    })
 }
 
 newGame();
