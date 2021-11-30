@@ -142,27 +142,41 @@ let turnsPlayed = 0;
 
 //game play logic
 const newGame = function() {
+    console.log("1");
     player1Display.classList.add("yourTurn");
+    console.log("2");
     allChoices.forEach((div) => {
+        console.log("3")
         div.addEventListener("click", () => {
+            console.log("4");
             if (gameEnd === true) {
+                console.log("5")
                 return;
             } else {
                 if ((player1Choices.includes(div)) || (player2Choices.includes(div))) {
-                    console.log(player1Choices);
-                    console.log(player2Choices);
+                    console.log("6");
                     alert("Choose an empty space.");
                 } else {
                     if (turnsPlayed % 2 === 0) {
+                        console.log("7")
                         div.innerText = "X";
+                        console.log("8")
                         div.classList.add("p1choice");
+                        console.log("9")
                         player1Choices.push(div);
+                        console.log("10")
                         checkWinnersP1();
+                        console.log("11")
                     } else if (turnsPlayed % 2 !== 0) {
+                        console.log("12")
                         div.innerText = "O";
+                        console.log("13")
                         div.classList.add("p2choice");
+                        console.log("14")
                         player2Choices.push(div);
+                        console.log("15")
                         checkWinnersP2();
+                        console.log("16")
                     };
                 };
             };
