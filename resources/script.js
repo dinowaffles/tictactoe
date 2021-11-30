@@ -142,50 +142,36 @@ let turnsPlayed = 0;
 
 //game play logic
 const newGame = function() {
-    console.log("1");
     player1Display.classList.add("yourTurn");
-    console.log("2");
     allChoices.forEach((div) => {
-        console.log("3")
-        div.addEventListener("click", () => {
-            console.log("4");
-            if (gameEnd === true) {
-                console.log("5")
-                return;
-            } else {
-                if ((player1Choices.includes(div)) || (player2Choices.includes(div))) {
-                    console.log("6");
-                    alert("Choose an empty space.");
-                } else {
-                    if (turnsPlayed % 2 === 0) {
-                        console.log("7")
-                        div.innerText = "X";
-                        console.log("8")
-                        div.classList.add("p1choice");
-                        console.log("9")
-                        player1Choices.push(div);
-                        console.log("10")
-                        checkWinnersP1();
-                        console.log("11")
-                    } else if (turnsPlayed % 2 !== 0) {
-                        console.log("12")
-                        div.innerText = "O";
-                        console.log("13")
-                        div.classList.add("p2choice");
-                        console.log("14")
-                        player2Choices.push(div);
-                        console.log("15")
-                        checkWinnersP2();
-                        console.log("16")
-                    };
-                };
-            };
-        });
+        div.addEventListener("click", onCellClick)
     });
 };
 
+const onCellClick = function (event) {
+    if (gameEnd === true) {
+        return;
+    } else {
+        if ((player1Choices.includes(event.target)) || (player2Choices.includes(event.target))) {
+            alert("Choose an empty space.");
+        } else {
+            if (turnsPlayed % 2 === 0) {
+                event.target.innerText = "X";
+                event.target.classList.add("p1choice");
+                player1Choices.push(event.target);
+                checkWinnersP1();
+            } else if (turnsPlayed % 2 !== 0) {
+                event.target.innerText = "O";
+                event.target.classList.add("p2choice");
+                player2Choices.push(event.target);
+                checkWinnersP2();
+            };
+        };
+    };
+}
+
 //starts a new game when the start button is pressed; clears board and arrays
-const startGame = startBtn.addEventListener("click", () => {
+startBtn.addEventListener("click", () => {
     player1Choices = [];
     player2Choices = [];
     turnsPlayed = 0;
@@ -193,6 +179,7 @@ const startGame = startBtn.addEventListener("click", () => {
         div.innerText = "";
         div.classList.remove("p1choice");
         div.classList.remove("p2choice");
+        div.removeEventListener("click", onCellClick)
     });
     results.innerText = "Results:"
     player1Display.classList.add("yourTurn");
