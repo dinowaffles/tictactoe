@@ -19,7 +19,7 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 
 .controls {
@@ -36,7 +36,7 @@ main {
     font-size: 1.5rem;
     color: #EDE9DF;
     margin: 0.6rem;
-    padding-left: 2rem;
+    padding: 1rem 1rem 1rem 2rem;
     border: 2px double #222222;
     border-radius: 15%;
     background-color: #7C4343;
@@ -129,6 +129,12 @@ div {
     font-size: 1.5rem;
 }
 
+.tally {
+    grid-column: 3;
+    font-size: 1.5rem;
+    padding-left: 2rem;
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -140,7 +146,7 @@ footer {
     main {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 2fr;
+        grid-template-rows: 1fr 1fr 1fr;
     }
 
     .controls {
@@ -155,8 +161,7 @@ footer {
         grid-row: 1;
         grid-column: 2;
         margin: 0;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding: 1rem 0.5rem 1rem 1rem;
     }
 
     #player1 {
@@ -201,6 +206,12 @@ footer {
         font-size: 5rem;
         text-align: center;
         line-height: 6rem;
+    }
+
+    .tally {
+        grid-column: 1;
+        grid-row: 3;
+        padding-left: 3rem;
     }
 
     footer {
