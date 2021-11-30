@@ -51,6 +51,7 @@ Functions:
 
 */
 
+//identifies possible spaces a player can choose
 const topLeft = document.querySelector("#topleft");
 const topMiddle = document.querySelector("#topmiddle");
 const topRight = document.querySelector("#topright");
@@ -61,15 +62,20 @@ const bottomLeft = document.querySelector("#bottomleft");
 const bottomMiddle = document.querySelector("#bottommiddle");
 const bottomRight = document.querySelector("#bottomright");
 
+//identifies the gameboard of all possible spaces
 const allChoices = document.querySelectorAll("div");
 
+//identifies button to start a new game
 const startBtn = document.querySelector("#startbtn");
 
+//displays which player's turn it is
 const player1Display = document.querySelector("#player1");
 const player2Display = document.querySelector("#player2");
 
+//displays the result of that particular game
 const results = document.querySelector("#results");
 
+//displays the results of all games played
 const p1WinsDisplay = document.querySelector("#p1wins");
 const p2WinsDisplay = document.querySelector("#p2wins");
 const tiesDisplay = document.querySelector("#ties")
@@ -78,11 +84,14 @@ let p1Wins = 0;
 let p2Wins = 0;
 let ties = 0;
 
+//arrays of elements that player1 and player2 have already chosen
 let player1Choices = [];
 let player2Choices = [];
 
+//keeps track of when there is an outcome and stops game play
 let gameEnd = false;
 
+//checks if there is a winner at the end of player1's turn
 const checkWinnersP1 = function() {
         if ((topLeft.innerText === "X" && topMiddle.innerText ==="X" && topRight.innerText === "X") ||
         (centerLeft.innerText === "X" && centerMiddle.innerText ==="X" && centerRight.innerText === "X") ||
@@ -108,6 +117,7 @@ const checkWinnersP1 = function() {
     };
 };
 
+//checks if there is a winner at the end of player2's turn
 const checkWinnersP2 = function() {
     if ((topLeft.innerText === "O" && topMiddle.innerText ==="O" && topRight.innerText === "O") ||
     (centerLeft.innerText === "O" && centerMiddle.innerText ==="O" && centerRight.innerText === "O") ||
@@ -127,8 +137,10 @@ const checkWinnersP2 = function() {
     };
 };
 
+//keeps track of whether it is player1 or player2's turn
 let turnsPlayed = 0;
 
+//game play logic
 const newGame = function() {
     player1Display.classList.add("yourTurn");
     allChoices.forEach((div) => {
@@ -158,8 +170,7 @@ const newGame = function() {
     });
 };
 
-// newGame();
-
+//starts a new game when the start button is pressed; clears board and arrays
 const startGame = startBtn.addEventListener("click", () => {
     player1Choices = [];
     player2Choices = [];
