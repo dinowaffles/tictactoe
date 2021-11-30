@@ -175,10 +175,10 @@ const startGame = startBtn.addEventListener("click", () => {
     player1Choices = [];
     player2Choices = [];
     turnsPlayed = 0;
-    allChoices.forEach((element) => {
-        element.innerText = "";
-        element.classList.remove("p1choice");
-        element.classList.remove("p2choice");
+    allChoices.forEach((div) => {
+        div.innerText = "";
+        div.classList.remove("p1choice");
+        div.classList.remove("p2choice");
     });
     results.innerText = "Results:"
     player1Display.classList.add("yourTurn");

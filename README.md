@@ -22,7 +22,11 @@ To create an online game where two people can play tic tac toe.
 ![image of wireframe](resources/images/wireframe.png)
 2. I then entered the elements and text into an HTML index file. 
 3. Then I utilized a grid in CSS to get my controls on the left hand side and the game board on the right side. Later on I added in a media query to the CSS so that the controls section would be above the gameboard on smaller screens.
-4. I then worked in the JavaScript file so that the game could be played. First I added event listeners so that when a user clicked on a space, a class would be added and the styling for that class would be applied to that element. Then I added in logic to check whether or not that player had won by comparing the innerHTML of possible three-in-a-rows. If there was no winner, then the game would continue until one player had accomplished three in a row or all spaces had been played. That result would then be shown in the results section. At that point, the game has ended, and the players would have the option of starting a new game. 
+4. I then worked in the JavaScript file so that the game could be played. First I added event listeners so that when a user clicked on a space, a class would be added and the styling for that class would be applied to that element. Then I added in logic to check whether or not that player had won by comparing the innerHTML of possible three-in-a-rows. If there was no winner, then the game would continue until one player had accomplished three in a row or all spaces had been played. That result would then be shown in the results section, and the games won tally would be updated for that player as well. After a game has ended, the players would have the option of starting a new game. 
+
+## Possible Future Updates
+- The ability to play against a computer.
+- The ability to complete against another player online. 
 
 ## Installation and Use
 - The game can be played online at: http://www.abbyhenes.com/tictactoe/

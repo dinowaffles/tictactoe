@@ -135,6 +135,10 @@ div {
     padding-left: 2rem;
 }
 
+#tallyTitle {
+    text-decoration: underline;
+}
+
 footer {
     display: flex;
     justify-content: center;
