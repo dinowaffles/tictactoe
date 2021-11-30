@@ -70,6 +70,14 @@ const player2Display = document.querySelector("#player2");
 
 const results = document.querySelector("#results");
 
+const p1WinsDisplay = document.querySelector("#p1wins");
+const p2WinsDisplay = document.querySelector("#p2wins");
+const tiesDisplay = document.querySelector("#ties")
+
+let p1Wins = 0;
+let p2Wins = 0;
+let ties = 0;
+
 let player1Choices = [];
 let player2Choices = [];
 
@@ -85,6 +93,7 @@ const checkWinnersP1 = function() {
         (topLeft.innerText === "X" && centerMiddle.innerText ==="X" && bottomRight.innerText === "X") ||
         (topRight.innerText === "X" && centerMiddle.innerText ==="X" && bottomLeft.innerText === "X")) {
             results.innerText = "Results: Player 1 Wins!";
+            p1WinsDisplay.innerText = p1Wins += 1;
             gameEnd = true;
     } else {
         if (turnsPlayed < 8) {
@@ -93,6 +102,7 @@ const checkWinnersP1 = function() {
             turnsPlayed += 1;
         } else {
             results.innerText = "Results: Tie Game!";
+            tiesDisplay.innerText = ties += 1;
             gameEnd = true;
         };
     };
@@ -108,6 +118,7 @@ const checkWinnersP2 = function() {
     (topLeft.innerText === "O" && centerMiddle.innerText ==="O" && bottomRight.innerText === "O") ||
     (topRight.innerText === "O" && centerMiddle.innerText ==="O" && bottomLeft.innerText === "O")) {
         results.innerText = "Results: Player 2 Wins!"
+        p2WinsDisplay.innerText = ties += 1; 
         gameEnd = true;
     } else {
         player2Display.classList.remove("yourTurn");
