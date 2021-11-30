@@ -148,13 +148,15 @@ footer {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-columns: 1fr 2fr 1fr;
+        padding: 0 1rem;
     }
 
     #startbtn {
         grid-row: 1;
         grid-column: 2;
         margin: 0;
-        padding: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
     #player1 {
@@ -175,5 +177,33 @@ footer {
     .gameboard {
         grid-column: 1;
         grid-row: 2;
+        max-width: 18rem;
+        max-height: 18rem;
+        padding-left: 1rem;
+        justify-content: center;
+    }
+
+    div {
+        height: 6rem;
+        width: 6rem;
+    }
+
+    .p1choice {
+        background-color: #3D493B;
+        color: #EDE9DF;
+        font-size: 5rem;
+        text-align: center;
+        line-height: 6rem;
+    }
+
+    .p2choice {
+        background-color: #A56060;
+        font-size: 5rem;
+        text-align: center;
+        line-height: 6rem;
+    }
+
+    footer {
+        padding-top: 0.2rem;
     }
 }
