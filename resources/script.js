@@ -102,7 +102,7 @@ const checkWinnersP1 = function() {
         (topLeft.innerText === "X" && centerMiddle.innerText ==="X" && bottomRight.innerText === "X") ||
         (topRight.innerText === "X" && centerMiddle.innerText ==="X" && bottomLeft.innerText === "X")) {
             results.innerText = "Results: Player 1 Wins!";
-            p1WinsDisplay.innerText = p1Wins += 1;
+            p1WinsDisplay.innerText = (p1Wins += 1);
             gameEnd = true;
     } else {
         if (turnsPlayed < 8) {
@@ -111,7 +111,7 @@ const checkWinnersP1 = function() {
             turnsPlayed += 1;
         } else {
             results.innerText = "Results: Tie Game!";
-            tiesDisplay.innerText = ties += 1;
+            tiesDisplay.innerText = (ties += 1);
             gameEnd = true;
         };
     };
@@ -128,7 +128,7 @@ const checkWinnersP2 = function() {
     (topLeft.innerText === "O" && centerMiddle.innerText ==="O" && bottomRight.innerText === "O") ||
     (topRight.innerText === "O" && centerMiddle.innerText ==="O" && bottomLeft.innerText === "O")) {
         results.innerText = "Results: Player 2 Wins!"
-        p2WinsDisplay.innerText = ties += 1; 
+        p2WinsDisplay.innerText = (p2Wins += 1); 
         gameEnd = true;
     } else {
         player2Display.classList.remove("yourTurn");
