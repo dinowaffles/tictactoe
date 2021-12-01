@@ -7,7 +7,7 @@ html {
 body {
     font-family: Viga;
     color: #222222;
-    background-color: #AEB7B8;
+    background-color: #f7ede2;
 }
 
 header {
@@ -25,8 +25,10 @@ main {
 .controls {
     grid-column: 1;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 2fr;
+    grid-template-rows: 2fr 1fr 1fr 2fr;
     padding: 0 3rem;
+    align-items: center;
+    justify-content: center;
 }
 
 #startbtn {
@@ -34,16 +36,17 @@ main {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    color: #EDE9DF;
+    color: #222222;
     margin: 0.6rem;
-    padding: 1rem 1rem 1rem 2rem;
+    padding: 1rem 1rem 1rem 1.5rem;
     border: 2px double #222222;
     border-radius: 15%;
-    background-color: #7C4343;
+    background-color: #f28482;
 }
 
 #startbtn:hover {
-    background-color: #AF7676;
+    background-color: #f5cac3;
+    color: #84a59d;
 }
 
 #player1 {
@@ -105,26 +108,27 @@ div {
     height: 9rem;
     width: 9rem;
     border: 2px solid #222222;
-    background-color: #EDE9DF;
+    background-color: #f5cac3;
 }   
 
 .p1choice {
-    background-color: #3D493B;
-    color: #EDE9DF;
+    background-color: #f6bd60;
+    color: #f28482;
     font-size: 7rem;
     text-align: center;
     line-height: 9rem;
 }
 
 .p2choice {
-    background-color: #A56060;
+    background-color: #84a59d;
+    color: #f7ede2;
     font-size: 7rem;
     text-align: center;
     line-height: 9rem;
 }
 
 .yourTurn {
-    color: #411010;
+    color: #205a5a;
     text-transform: uppercase;
     font-size: 1.5rem;
 }
@@ -198,15 +202,16 @@ footer {
     }
 
     .p1choice {
-        background-color: #3D493B;
-        color: #EDE9DF;
+        background-color: #f6bd60;
+        color: #f28482;
         font-size: 5rem;
         text-align: center;
         line-height: 6rem;
     }
 
     .p2choice {
-        background-color: #A56060;
+        background-color: #f5cac3;
+        color: #84a59d;
         font-size: 5rem;
         text-align: center;
         line-height: 6rem;

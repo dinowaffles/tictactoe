@@ -140,7 +140,7 @@ const checkWinnersP2 = function() {
 //keeps track of whether it is player1 or player2's turn
 let turnsPlayed = 0;
 
-//game play logic
+//function to play a new game
 const newGame = function() {
     player1Display.classList.add("yourTurn");
     allChoices.forEach((div) => {
@@ -148,6 +148,7 @@ const newGame = function() {
     });
 };
 
+//event listener for each space on the gameboard & game play logic
 const onCellClick = function (event) {
     if (gameEnd === true) {
         return;
