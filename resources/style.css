@@ -36,17 +36,18 @@ main {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    color: #222222;
+    color: #f6bd60;
     margin: 0.6rem;
     padding: 1rem 1rem 1rem 1.5rem;
-    border: 2px double #222222;
-    border-radius: 15%;
-    background-color: #f28482;
+    border: 4px solid #222222;
+    border-radius: 25%;
+    box-shadow: -8px 10px 20px 3px rgba(34, 34, 34, 0.2);
+    background-color: #f28482; 
 }
 
 #startbtn:hover {
-    background-color: #f5cac3;
-    color: #84a59d;
+    background-color: #84a59d;
+    color: #f6bd60;
 }
 
 #player1 {
@@ -129,6 +130,7 @@ div {
 
 .yourTurn {
     color: #205a5a;
+    text-shadow: 7px 4px 10px rgba(34, 34, 34, 0.6);
     text-transform: uppercase;
     font-size: 1.5rem;
 }
